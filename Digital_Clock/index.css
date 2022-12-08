@@ -1,0 +1,131 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.clock {
+    background-color: rgba(250, 250, 250, .75);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+}
+
+.clock .hand {
+    --rotation: 0;
+    background-color: black;
+    border: 1px solid white;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    /* rotatia se va face cu punctul fix in josul limbii */
+    transform: translateX(50%) rotate(calc(var(--rotation) * 1deg));
+    /* translateaza 50% din latime in continuare */
+}
+
+.clock::after {
+    content: '';
+    /* folosind pseudo-elementul after, cream un nou element pe care il putem stiliza */
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(50%, 50%);
+    background-color: black;
+}
+
+.clock .hand.hour {
+    width: 15px;
+    height: 30%;
+}
+
+.clock .hand.minute {
+    width: 10px;
+    height: 40%;
+}
+
+.clock .hand.second {
+    width: 5px;
+    height: 45%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-color: red;
+}
+
+.clock .number {
+    --rotation: 0;
+    /* variable */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.25rem;
+    transform: rotate(var(--rotation));
+}
+
+.clock .number1 {
+    --rotation: 30deg;
+}
+
+.clock .number2 {
+    --rotation: 60deg;
+}
+
+.clock .number3 {
+    --rotation: 90deg;
+}
+
+.clock .number4 {
+    --rotation: 120deg;
+}
+
+.clock .number5 {
+    --rotation: 150deg;
+}
+
+.clock .number6 {
+    --rotation: 180deg;
+}
+
+.clock .number7 {
+    --rotation: 210deg;
+}
+
+.clock .number8 {
+    --rotation: 240deg;
+}
+
+.clock .number9 {
+    --rotation: 270deg;
+}
+
+.clock .number10 {
+    --rotation: 300deg;
+}
+
+.clock .number11 {
+    --rotation: 330deg;
+}
+
+.clock .number3,
+.clock .number6,
+.clock .number9,
+.clock .number12 {
+    font-size: 2rem;
+    color: red;
+}
