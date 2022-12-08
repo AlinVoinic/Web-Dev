@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New product</title>
+</head>
+<body>
+    <h1>Create a new product:</h1>
+    <!-- Form trimite datele la ruta POST, care creaza un nou produs si il salveaza in BD -->
+    <form action="/products" method="post"> 
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price">
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <% for (let category of categories) { %>
+                <option value="<%=category%>">
+                    <%=category%>
+                </option>   
+            <% } %>  
+        </select>
+        <br>
+        <button>Submit</button>
+    </form>
+    <a href="/products">Back to all products!</a>
+</body>
+</html>
